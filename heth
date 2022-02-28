@@ -1,0 +1,56 @@
+# Health Python program to calculate recovery and minor health widgets.
+
+import time
+
+try:
+    from myfile import *
+except ModuleNotFoundError:
+    class QA:
+        f = open('myfile.py', 'w')
+        cal = int(1800)
+        user = input("Hi, what should I call you? ")
+        f.write("user = '" + str(user) + "'\n")
+        sleep = int(input("Okay " + user.capitalize() + ", how many hours do you sleep on average? "))
+        f.write("sleep = " + str(sleep) + "\n")
+        if sleep <= 6:
+            print("We recommend you to get more sleep in order to have a better recovery!")
+        else:
+            print("You are getting enough sleep for an optimal recovery!")
+
+        fitness = int(input("Now, on average how many calories do you burn from working out? "))
+        f.write("fitness = " + str(fitness) + "\n")
+        food = int(input(
+            "Great " + user.capitalize() + "! Can you tell me on average how many calories you consume per day? "))
+        f.write("food = " + str(food) + "\n")
+        print(
+            "Awesome! Just so you know the average person burns around 1,800 calories per day just from being alive!")
+        print("We will first begin with a simple calculation:", end=" ")
+
+        for i in range(3):
+            time.sleep(.7)
+            print(".", end=" ")
+        sumCal = int(cal + fitness - food)
+        f.write("sumCal = " + str(sumCal) + "\n")
+        print("")
+        if sumCal > 0:
+            sum = "{:,}".format(sumCal)
+            print("You have an average caloric deficit of: " + sum + " calories per day! That's a good start!")
+        else:
+            sumCal = abs(sumCal)
+            sum = "{:,}".format(sumCal)
+            print(
+                "You have an average caloric surplus of: " + sum + " calories per day! You will slowly gain weight!")
+        f.close()
+        exit()
+
+
+class Main:
+    print("Welcome Back, " + user + "!")
+    print("You are sleeping at an average of " + str(sleep) + " hours per night.")
+    print("You are burning an average of " + str(fitness) + " calories per workout session.")
+    print("You are consuming an average of " + str(food) + " calories per day.")
+    if sumCal > 0:
+        print("Your daily average caloric deficit is " + str(sumCal) + " calories.")
+    else:
+        sumCal = abs(sumCal)
+        print("Your daily average caloric surplus is " + str(sumCal) + " calories.")
