@@ -6,7 +6,8 @@ try:
     from myfile import *
 except ModuleNotFoundError:
     class QA:
-        f = open('myfile.py', 'w')
+        # Created class so that information is asked for once. File is created in a new module/file and creates it if the file does not exist
+        f = open('myfile.py', 'w') # I used a .py file instead of .txt because it's easier to delete and edit in the program for testing/troubleshooting.
         cal = int(1800)
         user = input("Hi, what should I call you? ")
         f.write("user = '" + str(user) + "'\n")
@@ -36,7 +37,7 @@ except ModuleNotFoundError:
             sum = "{:,}".format(sumCal)
             print("You have an average caloric deficit of: " + sum + " calories per day! That's a good start!")
         else:
-            sumCal = abs(sumCal)
+            sumCal = abs(sumCal) # Used the abs command so the number is always displayed as a positive number
             sum = "{:,}".format(sumCal)
             print(
                 "You have an average caloric surplus of: " + sum + " calories per day! You will slowly gain weight!")
